@@ -110,19 +110,21 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 
 	for _, component := range []manager.Manager{
 		components.Keystone(),
-		components.Influxdb(),
-		components.Telegraf(),
+		//components.Influxdb(),
+		//components.Telegraf(),
 		components.Region(),
 		components.Scheduler(),
 		components.Web(),
 		components.KubeServer(),
 		components.Glance(),
 		components.RegionDNS(),
-		components.Yunionagent(),
+		// 企业版授权服务
+		//components.Yunionagent(),
 		components.AnsibleServer(),
 		components.APIGateway(),
-		components.Meter(),
-		components.EsxiAgent(),
+		//计费服务
+		//components.Meter(),
+		//components.EsxiAgent(),
 		components.OvnNorth(),
 		components.APIMap(),
 		components.VpcAgent(),
@@ -131,7 +133,7 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 		components.Host(),
 		components.HostHealth(),
 		components.Monitor(),
-		components.Cloudmon(),
+		//components.Cloudmon(),
 	} {
 		if err := component.Sync(oc); err != nil {
 			if !controller.StopServices {
@@ -145,26 +147,27 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 	var dependComponents = []manager.Manager{
 		components.Logger(),
 		components.Climc(),
-		components.Cloudmux(),
-		components.AutoUpdate(),
-		components.Cloudnet(),
-		components.Cloudproxy(),
-		components.Cloudevent(),
-		components.Devtool(),
+		// 公有云接入
+		//components.Cloudmux(),
+		//components.AutoUpdate(),
+		//components.Cloudnet(),
+		//components.Cloudproxy(),
+		//components.Cloudevent(),
+		//components.Devtool(),
 		components.Webconsole(),
 		components.Yunionconf(),
 		components.S3gateway(),
 		components.Notify(),
 		components.Baremetal(),
 		components.ServiceOperator(),
-		components.Itsm(),
-		components.CloudId(),
-		components.Suggestion(),
+		//components.Itsm(),
+		//components.CloudId(),
+		//components.Suggestion(),
 		components.Scheduledtask(),
-		components.Report(),
-		components.Lbgent(),
-		components.EChartsSSR(),
-		components.BastionHost(),
+		//components.Report(),
+		//components.Lbgent(),
+		//components.EChartsSSR(),
+		//components.BastionHost(),
 	}
 	var grp errgroup.Group
 	for _, component := range dependComponents {
