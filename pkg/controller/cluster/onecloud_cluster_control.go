@@ -120,7 +120,7 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 		components.RegionDNS(),
 		// 企业版授权服务
 		//components.Yunionagent(),
-		//components.AnsibleServer(),
+		components.AnsibleServer(),
 		components.APIGateway(),
 		//计费服务
 		//components.Meter(),
@@ -153,7 +153,7 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 		//components.Cloudnet(),
 		//components.Cloudproxy(),
 		//components.Cloudevent(),
-		//components.Devtool(),
+		components.Devtool(),
 		components.Webconsole(),
 		components.Yunionconf(),
 		components.S3gateway(),
