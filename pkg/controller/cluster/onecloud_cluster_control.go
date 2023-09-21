@@ -110,8 +110,8 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 
 	for _, component := range []manager.Manager{
 		components.Keystone(),
-		//components.Influxdb(),
-		//components.Telegraf(),
+		components.Influxdb(),
+		components.Telegraf(),
 		components.Region(),
 		components.Scheduler(),
 		components.Web(),
@@ -120,7 +120,7 @@ func (occ *defaultClusterControl) updateOnecloudCluster(oc *v1alpha1.OnecloudClu
 		components.RegionDNS(),
 		// 企业版授权服务
 		//components.Yunionagent(),
-		components.AnsibleServer(),
+		//components.AnsibleServer(),
 		components.APIGateway(),
 		//计费服务
 		//components.Meter(),
